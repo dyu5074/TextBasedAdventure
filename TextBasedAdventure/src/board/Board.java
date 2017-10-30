@@ -1,38 +1,38 @@
 package board;
 
-import rooms.Room;
+import rooms.Rooms;
 
 public class Board {
 
 
-    private Room[][] map1;
+    private Rooms[][] Gotham;
 
 
 
-    public Board(Room[][] map1)
+    public Board(Rooms[][] Gotham)
     {
-        this.map1 = map1;
+        this.Gotham = Gotham;
     }
 
-    public void printmap1()
+    public void printGotham()
     {
 
 
-        for(Room[] row : map1)
+        for(Rooms[] row : Gotham)
         {
-            for (Room room : row)
+            for (Rooms rooms : row)
             {
-                room.print();
+                rooms.print();
             }
             System.out.println();
         }
     }
-    public Room[][] getmap1() {
-        return map1;
+    public Rooms[][] getGotham() {
+        return Gotham;
     }
 
-    public void setmap1(Room[][] map1) {
-        this.map1 = map1;
+    public void setGotham(Rooms[][] Gotham) {
+        this.Gotham = Gotham;
     }
 
 

@@ -1,38 +1,39 @@
 package game;
 
+import java.util.Scanner;
+import rooms.Rooms;
+import rooms.Dungeon;
+import rooms.Hallway;
+import rooms.Room;
 public class GameRunner 
 {
-	/*public static void main (String[] args)
-	{
-		String[][] gotham = new String[5][10];
-		for (int j = 0; j<gotham.length; j++)
-        {
-        	String[] row = gotham[j];
-            for (int i = 0; i<row.length;i++)
-            {
-            	System.out.println(gotham[i][j]);
-            }
-            System.out.println();
-        }
-	} */
 	public static void main (String[] args)
 	{
-		int rows = 10;
-		int columns = 7;
+		 Scanner a = new Scanner(System.in);
+		 System.out.println("Hello, what is your name?");
+		 String b = a.nextLine();
+		 System.out.println("Hello " + b + "Welcome to my dungeon dragon adventure game. You will start with 100 coins. What would you like to buy, an axe or a sword?" );
+		 Scanner c = new Scanner(System.in);
+		 String d = c.nextLine();
+		 if (c.nextLine() == "axe")
+		 {
+			 System.out.println("Nice, you have acquired an axe, use it to kill dragons");
+		 }
+		 else
+		 {
+			 System.out.println("Nice, you have acquired a sword, use it to kill dragons");
+		 }
+		 
+		 Rooms[][] map = new Rooms[5][5];
+	        for (int j = 0; j<map.length; j++)
+	        {
+	        	Rooms[] row = map[j];
+	            for (int i = 0; i<row.length;i++)
+	            {
+	                boolean[] doors = {true,true,true,true};
+	              
+	            }
 
-		int[][] array = new int[rows][columns];
-
-		for(int i = 0; i<rows; i++)
-			for(int j = 0; j<columns; j++)
-				array[i][j] = 0;
-
-		for(int i = 0; i<rows; i++)
-		{
-			for(int j = 0; j<columns; j++)
-			{
-				System.out.print(array[i][j]);
-			}
-			System.out.println();
-		}
+	        }
 	}
 }
