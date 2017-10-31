@@ -3,8 +3,6 @@ package game;
 import java.util.Scanner;
 import rooms.Rooms;
 import rooms.Dungeon;
-import rooms.Hallway;
-import rooms.Room;
 public class GameRunner 
 {
 	public static void main (String[] args)
@@ -12,7 +10,7 @@ public class GameRunner
 		 Scanner a = new Scanner(System.in);
 		 System.out.println("Hello, what is your name?");
 		 String b = a.nextLine();
-		 System.out.println("Hello " + b + "Welcome to my dungeon dragon adventure game. You will start with 100 coins. What would you like to buy, an axe or a sword?" );
+		 System.out.println("Hello " + b + "Welcome to my dungeon dragon adventure game. What would you like to buy, an axe or a sword?" );
 		 Scanner c = new Scanner(System.in);
 		 String d = c.nextLine();
 		 if (c.nextLine() == "axe")
@@ -31,7 +29,7 @@ public class GameRunner
 	            for (int i = 0; i<row.length;i++)
 	            {
 	                boolean[] doors = {true,true,true,true};
-	              
+	                row[i] = new Dungeon(doors, i, j);
 	            }
 
 	        }

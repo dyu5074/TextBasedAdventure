@@ -5,23 +5,20 @@ import java.util.Arrays;
 public abstract class Rooms {
 	private boolean[] doors;
     private String occupants;
-    private int money;
     private int health;
     private int damage;
     private boolean explored;
-	public int getmoney()
-    {
-    	return 100;
-    }
-	public int health()
+	public int gethealth()
 	{
 		return health;
 	}
+	public int getdamage()
+	{
+		return damage;
+	}
 	public abstract void print();
-	public Room (boolean[] doors,boolean[] explored, private Person[] occupants, int health, int money, int damage)
+	public Rooms (boolean[] doors, boolean explored, int health, int damage)
     {
-    	this.money = money;
-    	this.occupants = occupants;
     	this.health = health;
     	this.damage = damage;
         this.doors = doors;

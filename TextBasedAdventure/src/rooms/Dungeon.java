@@ -1,9 +1,9 @@
 package rooms;
 import rooms.Rooms;
 public class Dungeon extends Rooms{
-	 public Dungeon(boolean[] doors, Person[] occupants, Item[] items, int money, int health, int damage)
+	 public Dungeon(boolean[] doors, int health, int damage)
 	    {
-	        super(doors, people, items, health, money, damage);
+	        super(doors, health, damage);
 	    }
 	 public void print()
 	    {
@@ -20,5 +20,28 @@ public class Dungeon extends Rooms{
 	            System.out.print("[   ]");
 	        }
 
+	    }
+	 public String toString()
+	    {
+	    	boolean[] doors = this.getDoors();
+	    	String response = "This room is a Dungeon. It has doors to the ";
+	    	if (doors[0])
+	    	{
+	    		response += "Lavatory";
+	    	}
+	    	
+	    	if(doors[1]) {
+	    		response += " and Laboratory";
+	    	}
+	    	
+	    	if (doors[2]) {
+	    		response += " and Castle";
+	    	}
+	    	
+	    	if (doors[3]) {
+	    		response += " and Fortress";
+	    	}
+	    	
+	    	return response;
 	    }
 }
