@@ -1,9 +1,9 @@
 package rooms;
 import rooms.Rooms;
 public class Dungeon extends Rooms{
-	 public Dungeon(boolean[] doors, int health, int damage)
+	 public Dungeon(boolean[] doors,boolean explored, int health, int damage)
 	    {
-	        super(doors, health, damage);
+	        super(doors, explored, health, damage);
 	    }
 	 public void print()
 	    {

@@ -5,12 +5,37 @@ import java.util.Arrays;
 public abstract class Rooms {
 	private boolean[] doors;
     private String occupants;
-    private int health;
+    private int health = 1000;
     private int damage;
     private boolean explored;
+    private int UP = 0;
+    private int DOWN = 1;
+    private int RIGHT = 2;
+    private int LEFT = 3;
+    private int money = 100;
 	public int gethealth()
 	{
 		return health;
+	}
+	public int goUP()
+	{
+		return UP;
+	}
+	public int goDOWN()
+	{
+		return DOWN;
+	}
+	public int goRIGHT()
+	{
+		return RIGHT;
+	}
+	public int goLEFT()
+	{
+		return LEFT;
+	}
+	public int getMoney()
+	{
+		return money;
 	}
 	public int getdamage()
 	{
@@ -24,6 +49,10 @@ public abstract class Rooms {
         this.doors = doors;
         this.explored = false;
     }
+	public boolean explored()
+	{
+		return explored;
+	}
 	public boolean[] getDoors()
     {
     	return doors;
