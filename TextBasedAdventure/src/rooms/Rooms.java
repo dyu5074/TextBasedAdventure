@@ -64,7 +64,7 @@ public class Rooms {
 	public void setOccupants(Person[] occupants) {
         this.occupants = occupants;
     }
-	public abstraid void print();
+	public abstract void print();
 	public void addOccupant(Person p)
 	{
 	     this.occupants = Arrays.copyOf(this.occupants,this.occupants.length+1);

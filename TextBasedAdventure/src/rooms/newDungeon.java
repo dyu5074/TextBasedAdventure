@@ -8,7 +8,7 @@ import rooms.Rooms;
 
 public class newDungeon {
 	private Room[][] dungeonmap;
-	public Dungeon(Room[][] map) {
+	public Dungeon(Rooms[][] map) {
 		this.dungeonmap=map;
 	}
 }

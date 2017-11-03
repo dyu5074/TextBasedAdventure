@@ -17,7 +17,7 @@ public class GameRunner
 		 String d = c.nextLine();
 		 
 		 
-		 if (c.nextLine() == "axe")
+		 if (d.equals("axe"))
 		 {
 			 System.out.println("Nice, you have acquired an axe, use it to kill dragons");
 		 }
@@ -27,15 +27,36 @@ public class GameRunner
 		 }
 		 
 		 Rooms[][] map = new Rooms[5][5];
-		 Person player1 = Utilities.createPerson(map);
+		 
 	        
-         System.out.println("Welcome to the Dungeon Dragon Game " + player1.getName());
+         System.out.println("Welcome to the Dungeon Dragon Game ");
 		 boolean gameOn = true;
+		 Scanner e = new Scanner(System.in);
+		 String f = e.nextLine();
 		 while (gameOn)
 		 {
-	            player1.Move();
-	            
-		 }
+	        int rows = 5;
+	        int columns = 3;
+
+	        int[][] array = new int[rows][columns];
+
+	        for(int i = 0; i<rows; i++)
+	            for(int j = 0; j<columns; j++)
+	                array[i][j] = 0;
+
+	        for(int i = 0; i<rows; i++)
+	        {
+	            for(int j = 0; j<columns; j++)
+	            {
+	                System.out.print(array[i][j]);
+	            }
+	            System.out.println();
+	        }
+	        if(e.nextLine() == "End")
+	        {
+	        	gameOn = false;
+	        }
+	     }
 		 
 	}
 	private int findKeyword(String statement, String goal, int startPos)
