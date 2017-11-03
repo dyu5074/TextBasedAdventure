@@ -1,8 +1,10 @@
 package game;
-
+//made by Derek Yu
 import java.util.Scanner;
 import rooms.Rooms;
-import rooms.Dungeon;
+import rooms.newDungeon;
+import rooms.Utilities;
+import rooms.Person;
 public class GameRunner 
 {
 	public static void main (String[] args)
@@ -25,16 +27,16 @@ public class GameRunner
 		 }
 		 
 		 Rooms[][] map = new Rooms[5][5];
-	        for (int j = 0; j<map.length; j++)
-	        {
-	        	Rooms[] row = map[j];
-	            for (int i = 0; i<row.length;i++)
-	            {
-	                boolean[] doors = {true,true,true,true};
-	                row[i] = new Dungeon(doors, true, i, j);
-	            }
-
-	        }
+		 Person player1 = Utilities.createPerson(map);
+	        
+         System.out.println("Welcome to the Dungeon Dragon Game " + player1.getName());
+		 boolean gameOn = true;
+		 while (gameOn)
+		 {
+	            player1.Move();
+	            
+		 }
+		 
 	}
 	private int findKeyword(String statement, String goal, int startPos)
 	{
