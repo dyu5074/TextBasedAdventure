@@ -1,5 +1,5 @@
 package rooms;
-
+//made by Derek Yu
 import rooms.Person;
 
 public abstract class shopRoom extends Room {

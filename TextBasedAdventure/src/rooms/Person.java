@@ -1,5 +1,5 @@
 package rooms;
-
+//made by Derek Yu
 import java.util.Scanner;
 public class Person {
 	

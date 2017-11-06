@@ -1,7 +1,7 @@
 package board;
 import rooms.Person;
 import rooms.Room;
-// made by Derek Yu
+//made by Derek Yu
 
 public class Board {
 
