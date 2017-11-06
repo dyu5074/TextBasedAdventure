@@ -27,17 +27,6 @@ public class GameRunner
           player1.getMove();  
           System.out.println(player1.getName() + " Your stats are Health:" + player1.health + " Attack:" + player1.attack + " Defense:" + player1.defense + " Ability Power:" + player1.abilitypower);
           
-          if(player1.health < 1)
-          {
-        	  System.out.println("You have died from your injuries. Game Over");
-        	  gameOn = false;
-          }
-          if(player1.getY() > 7)
-		  {
-            System.out.print("Sorry, " + player1.getName() + " You cannot move this way.\n");
-            player1.y -=1;
-			
-		  }
           if(player1.getY() < 0)
           {
         	System.out.print("Sorry, " + player1.getName() + " You cannot move this way.\n");
@@ -53,9 +42,20 @@ public class GameRunner
         	System.out.print("Sorry, " + player1.getName() + " You cannot move this way.\n");
         	player1.x +=1;
           }  
+          if(player1.health < 1)
+          {
+        	  System.out.println("You have died from your injuries. Game Over");
+        	  gameOn = false;
+          }
+          if(player1.getY() > 7)
+		  {
+            System.out.print("Sorry, " + player1.getName() + " You cannot move this way.\n");
+            player1.y -=1;
+			
+		  }
           if(player1.getX() == 6 && player1.getY() == 6)
           {
-        	System.out.print("Congrats, you won the game!");
+        	System.out.print("Congrats, " + player1.getName() + " you won the game!");
         	gameOn = false;
           }
         }
