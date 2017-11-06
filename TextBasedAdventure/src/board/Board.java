@@ -1,39 +1,32 @@
 package board;
+import rooms.Person;
+import rooms.Room;
 // made by Derek Yu
-import rooms.Rooms;
 
 public class Board {
 
+private Room[][]map;
+	
+	public Board(Room[][] map) {
+		this.map = map;
+	}
 
-    private Rooms[][] Gotham;
-
-
-
-    public Board(Rooms[][] Gotham)
-    {
-        this.Gotham = Gotham;
-    }
-
-    public void printGotham()
-    {
-
-
-        for(Rooms[] row : Gotham)
-        {
-            for (Rooms rooms : row)
-            {
-                rooms.print();
-            }
-            System.out.println();
-        }
-    }
-    public Rooms[][] getGotham() {
-        return Gotham;
-    }
-
-    public void setGotham(Rooms[][] Gotham) {
-        this.Gotham = Gotham;
-    }
-
-
+	public void printMap(Person player1) {
+		for (int i = 0; i < 7; i++)
+		{
+			for (int j = 0; j < 7; j++)
+			{
+				if (j == player1.getX() && i == player1.getY())
+				{
+					System.out.print(" [ " + "i" + " ] ");
+				}
+				else
+					System.out.print(" [   ] ");
+			}
+			System.out.println(" ");
+		} 
+	}
+	public Room[][] getMap() {
+	       return map;
+	}
 }

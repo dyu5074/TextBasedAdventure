@@ -1,97 +1,63 @@
 package game;
 //made by Derek Yu
-import java.util.Scanner;
-import rooms.Rooms;
-import rooms.newDungeon;
+import rooms.Room;
 import rooms.Utilities;
 import rooms.Person;
+
+import java.util.Scanner;
+
+import board.Board;
 public class GameRunner 
 {
 	public static void main (String[] args)
 	{
-		 Scanner a = new Scanner(System.in);
-		 System.out.println("Hello, what is your name?");
-		 String b = a.nextLine();
-		 System.out.println("Hello " + b + ", Welcome to my dungeon dragon adventure game. What would you like to buy, an axe or a sword?" );
-		 Scanner c = new Scanner(System.in);
-		 String d = c.nextLine();
-		 
-		 
-		 if (d.equals("axe"))
-		 {
-			 System.out.println("Nice, you have acquired an axe, use it to kill dragons");
-		 }
-		 else
-		 {
-			 System.out.println("Nice, you have acquired a sword, use it to kill dragons");
-		 }
-		 
-		 Rooms[][] map = new Rooms[5][5];
-		 
-	        
-         System.out.println("Welcome to the Dungeon Dragon Game ");
-		 boolean gameOn = true;
-		 Scanner e = new Scanner(System.in);
-		 String f = e.nextLine();
-		 while (gameOn)
-		 {
-	        int rows = 5;
-	        int columns = 3;
+		Room[][] map = new Room[7][7];
 
-	        int[][] array = new int[rows][columns];
+        Board Dungeon = new Board(map);
 
-	        for(int i = 0; i<rows; i++)
-	            for(int j = 0; j<columns; j++)
-	                array[i][j] = 0;
 
-	        for(int i = 0; i<rows; i++)
-	        {
-	            for(int j = 0; j<columns; j++)
-	            {
-	                System.out.print(array[i][j]);
-	            }
-	            System.out.println();
-	        }
-	        if(e.nextLine() == "End")
-	        {
-	        	gameOn = false;
-	        }
-	     }
-		 
-	}
-	private int findKeyword(String statement, String goal, int startPos)
-	{
-		String phrase = statement.trim().toLowerCase();
-		goal = goal.toLowerCase();
 
-		int psn = phrase.indexOf(goal, startPos);
-
-		while (psn >= 0)
-		{
-			String before = " ", after = " ";
-			if (psn > 0)
-			{
-				before = phrase.substring(psn - 1, psn);
-			}
-			if (psn + goal.length() < phrase.length())
-			{
-				after = phrase.substring(
-						psn + goal.length(),
-						psn + goal.length() + 1);
-			}
-
-			if (((before.compareTo("a") < 0) || (before
-					.compareTo("z") > 0)) 
-					&& ((after.compareTo("a") < 0) || (after
-							.compareTo("z") > 0)))
-			{
-				return psn;
-			}
-
-			psn = phrase.indexOf(goal, psn + 1);
-
-		}
-
-		return -1;
+        boolean gameOn = true;
+        Person player1 = Utilities.createPerson();
+        Scanner in = new Scanner(System.in);
+        System.out.println("Welcome to the Dungeon Dragon Adventure Game " + player1.getName());
+        while(gameOn)
+        {
+          Dungeon.printMap(player1);
+          player1.getMove();  
+          System.out.println(player1.getName() + " Your stats are Health:" + player1.health + " Attack:" + player1.attack + " Defense:" + player1.defense + " Ability Power:" + player1.abilitypower);
+          
+          if(player1.health < 1)
+          {
+        	  System.out.println("You have died from your injuries. Game Over");
+        	  gameOn = false;
+          }
+          if(player1.getY() > 7)
+		  {
+            System.out.print("Sorry, " + player1.getName() + " You cannot move this way.\n");
+            player1.y -=1;
+			
+		  }
+          if(player1.getY() < 0)
+          {
+        	System.out.print("Sorry, " + player1.getName() + " You cannot move this way.\n");
+        	player1.y +=1;
+          }
+          if( player1.getX() > 7)
+          {
+        	System.out.print("Sorry, " + player1.getName() + " You cannot move this way.\n");
+        	player1.x -=1;
+          }
+          if(player1.getX() < 0)
+          {
+        	System.out.print("Sorry, " + player1.getName() + " You cannot move this way.\n");
+        	player1.x +=1;
+          }  
+          if(player1.getX() == 6 && player1.getY() == 6)
+          {
+        	System.out.print("Congrats, you won the game!");
+        	gameOn = false;
+          }
+        }
 	}
 }

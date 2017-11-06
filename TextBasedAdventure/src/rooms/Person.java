@@ -1,63 +1,74 @@
 package rooms;
-//made by Derek Yu
-import rooms.Rooms;
+
 import java.util.Scanner;
-public  class Person {
-	private String name;
-	private int[] theroom;
-	public Person (String thename)
+public class Person {
+	
+	public int health;
+	public int attack;
+	public int defense;
+	private boolean canwin;
+	public int x;
+	public int y;
+	private String name; 
+	public int abilitypower;
+	
+	 public Person ( String name,int health, int attack, int defense, int abilitypower, boolean canwin, int x, int y)
+	 {
+		 this.name = name;
+		 this.attack = attack;
+		 this.defense = defense;
+		 this.abilitypower = abilitypower;
+		 this.canwin = false;
+		 this.health = health;
+		 this.x = x;
+		 this.y = y;
+	 }
+	 
+	 public boolean CanPersonWin()
+	 {
+		 return canwin;
+	 }
+	 
+	 public String getName()
+	 {
+		 return name;
+	 }
+	 
+	 public void getMove()
 	{
-		this.name = thename;
-		this.theroom=new int[] {0,0};
-	}
-	public String getName() {
-		return name;
-	}
-	public void Move() {
-		System.out.println("Would you like to move left, right, down or up?");
-		Scanner moveinput=new Scanner(System.in);
-		String move = moveinput.next();
-		if(move.equals("left")) 
+		System.out.println("Use w - up, d - right, s-down, a - left to move around the board.");
+		Scanner in = new Scanner(System.in);
+		String response = in.nextLine();
+		
+		if (response.equals("w"))
 		{
-			theroom[0]+=-1;
-			System.out.println("you moved left");
+			this.y -= 1;
 		}
-		if(move.equals("right")) {
-			theroom[0]+=+1;
-			System.out.println("you moved right");
-		}
-		if(move.equals("down")) {
-			theroom[1]+=-1;
-			System.out.println("you moved down");
-		}
-		if(move.equals("up")) {
-			theroom[1]+=+1;
-			System.out.println("you moved up");
-		}
-		System.out.print(theroom[0]+" y= "+theroom[1]);
-		System.out.println();
-		printmap(theroom[0],theroom[1]);
-	}
-	public void printmap(int x, int y) {
-		for(int i=0; i<10;i++)
+		else if (response.equals("s"))
 		{
-			if(i==x)
-			{
-				for(int j=0;j<9;j++)
-				{
-					if(j==y)
-					{
-						System.out.print("1");
-					}
-					System.out.print("0");
-				}
-			}
-			else
-				for(int j=0;j<10;j++)
-				{
-					System.out.print("0 ");
-				}
-		System.out.println();
+			this.y += 1;
+		}
+		else if (response.equals("d"))
+		{
+			this.x += 1;
+		}
+		else if (response.equals("a"))	
+		{
+			this.x -= 1 ;
+		}
+		else
+		{
+			System.out.println("Invalid Move. Please consider another move.");
 		}
 	}
+	 
+	 public int getX()
+	 {
+		return x;
+	 }
+		
+	 public int getY()
+	 {
+		return y;
+	 }
 }
